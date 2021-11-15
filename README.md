@@ -33,7 +33,11 @@ JavaScript, Node.js, Npm Modules, MySQL
 
 ## Screenshots
 HomePage
-![Screenshot of note adding](./public/images/home.png)</br>
+![Screenshot of note adding](./public/images/employee-tracker.gif)</br>
 
 ## Github Page: 
 https://github.com/amykep/employee-tracker
+
+## A walkthrough video demonstrating the functionality of the application.
+
+https://drive.google.com/file/d/1f1irkYqOk_VTXaihVnw4GqvmjhyBtKEb/view?usp=sharing
