@@ -284,35 +284,46 @@ function addEmployee()
 
 function updateEmployee()
 {
-    let employeeNameArray = [];
-    const sql = 'SELECT * FROM employee'
+    let employeeArray = []
+    const sql = 'SELECT CONCAT (employee.first_name," ", employee.last_name)as employee FROM employee'
+    // const sql = 'SELECT * FROM employee'
     db.query(sql, (error, response) =>
     {
 
         if (error) throw error;
+        for (let i = 0; i < response.length; i++)
+        {
+            employeeArray.push(response[i].employee)
+        }
+        // response.forEach((employee) => { employeeArray.push(response) });
+        console.log(employeeArray)
 
-        response.forEach((employee) => { employeeNameArray.push(employee.first_name), (employee.last_name) });
+        // let employeeNameArray = [sql.employee];
+        // console.log(employeeNameArray)
     })
 
     inquirer.prompt([
         {
-            type: 'input',
             name: 'role',
+            type: 'input',
             message: 'Input new role',
         },
         {
+            name: 'Name',
             type: 'list',
-            name: 'firstName',
             message: 'Select employee',
-            choices: employeeNameArray
+            choices: employeeArray
         }
 
     ])
         .then(res =>
         {
-            console.log(res.firstName, res.role)
+            console.log(res.Name, res.role)
+            const name = res.Name.split(' ');
+            console.log(name, name[0])
+            let firstName = name[0]
 
-            db.query('UPDATE employee SET title = ? WHERE employee.first_name = ? ', [res.role, res.firstName],
+            db.query('UPDATE employee SET title = ? WHERE employee.first_name = ? ', [res.role, firstName],
 
                 (err, res) =>
                 {

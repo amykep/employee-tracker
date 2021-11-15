@@ -36,4 +36,4 @@ HomePage
 ![Screenshot of note adding](./public/images/home.png)</br>
 
 ## Github Page: 
-https://github.com/amykep/Tech-Blog
+https://github.com/amykep/employee-tracker
